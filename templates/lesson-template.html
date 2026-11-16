@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+  講義模板（規則見 CLAUDE.md 第 4、5 節）
+  使用方式：
+    1. 複製到 lessons/<course-id>/chNN-<slug>.html
+    2. 修改 <title> 與 body 上的 data-course、data-id
+    3. 依序填入六個固定區塊，刪掉不用的可選元件
+    4. 到 assets/lessons.js 登記這篇講義
+-->
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>科目 Ch N 標題｜課程複習講義</title>
+  <link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-page="lesson" data-root="../../" data-course="COURSE-ID" data-id="chNN-slug">
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../../index.html">課程複習講義</a>
+      <nav id="breadcrumb"></nav>
+    </div>
+  </header>
+
+  <main class="lesson-layout">
+    <article>
+
+      <!-- 1. 頁首 -->
+      <header class="lesson-head">
+        <p class="kicker">科目 · Ch N</p>
+        <h1>中文標題 <span class="en">English Title</span></h1>
+        <p class="lede">一句話說明本章在講什麼。</p>
+      </header>
+
+      <!-- 2. 本章重點（3–5 點） -->
+      <section class="key-points">
+        <h2>本章重點</h2>
+        <ul>
+          <li>重點一</li>
+          <li>重點二</li>
+          <li>重點三</li>
+        </ul>
+      </section>
+
+      <!-- 3. 正文：一個主題一個 section，h2 會自動變成目錄 -->
+      <section>
+        <h2>主題一</h2>
+        <p>內容段落。術語第一次出現寫成「中文（English）」。</p>
+
+        <!-- 可選：例子 -->
+        <aside class="callout example">
+          <p class="callout-title">例子</p>
+          <p>生活化或台灣品牌的例子。</p>
+        </aside>
+      </section>
+
+      <section>
+        <h2>主題二</h2>
+        <!-- 可選：比較表 -->
+        <div class="table-wrap">
+          <table class="compare">
+            <thead><tr><th>項目</th><th>A</th><th>B</th></tr></thead>
+            <tbody><tr><td>比較點</td><td>…</td><td>…</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4. 名詞卡 -->
+      <section>
+        <h2>名詞卡</h2>
+        <dl class="terms">
+          <div><dt>中文 <span class="en">English</span></dt><dd>一句解釋。</dd></div>
+          <div><dt>中文 <span class="en">English</span></dt><dd>一句解釋。</dd></div>
+        </dl>
+      </section>
+
+      <!-- 5. 考試提醒 -->
+      <aside class="callout exam">
+        <p class="callout-title">考試提醒</p>
+        <ul>
+          <li>容易考或容易混淆的地方。</li>
+        </ul>
+      </aside>
+
+      <!-- 6. 自我測驗（英文題、中文解析） -->
+      <section class="quiz">
+        <h2>自我測驗</h2>
+        <ol class="questions">
+          <li class="q">
+            <p>Question text in English?</p>
+            <ol class="options">
+              <li>Option</li>
+              <li>Option</li>
+              <li>Option</li>
+              <li>Option</li>
+            </ol>
+            <details>
+              <summary>看答案</summary>
+              <p><b>答案：B</b>。中文解析。</p>
+            </details>
+          </li>
+        </ol>
+      </section>
+
+      <nav id="pager"></nav>
+    </article>
+
+    <aside id="toc"></aside>
+  </main>
+
+  <footer class="site-foot">課程複習講義 · 個人整理，僅供複習參考</footer>
+
+  <script src="../../assets/lessons.js"></script>
+  <script src="../../assets/site.js"></script>
+</body>
+</html>

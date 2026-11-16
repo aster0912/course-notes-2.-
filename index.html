@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>管院課程重點整理｜課程複習講義</title>
+  <meta name="description" content="自己考前複習用的管院課程重點整理：中文重點、難的術語附英文、英文選擇題自我測驗。">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="home" data-root="./">
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">課程複習講義</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>管院課程重點整理</h1>
+    <p>考試是全英文選擇題，投影片又塞得太滿、重點不明顯，所以自己把每章濃縮成中文重點：難的術語才標英文，容易搞混的觀念另外拉出來比較，最後用英文選擇題測自己。</p>
+    <p class="stat">目前收錄 <b id="lesson-count">0</b> 篇講義</p>
+  </section>
+
+  <main id="course-list"></main>
+
+  <section class="how">
+    <p>新增講義的方式寫在專案的 <code>CLAUDE.md</code>：複製 <code>templates/lesson-template.html</code>，填完內容後在 <code>assets/lessons.js</code> 登記，首頁就會自動出現。</p>
+  </section>
+
+  <footer class="site-foot">課程複習講義 · 個人整理，僅供複習參考</footer>
+
+  <script src="assets/lessons.js"></script>
+  <script src="assets/site.js"></script>
+</body>
+</html>

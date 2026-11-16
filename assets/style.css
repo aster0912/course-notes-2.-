@@ -1,0 +1,165 @@
+/* =========================================================
+   管院課程複習講義站 —— 全站唯一樣式表
+   主題：紙本筆記。顏色、字型、間距都改這裡的變數。
+   ========================================================= */
+:root {
+  --paper: #faf7f0;
+  --paper-2: #f2ede1;
+  --ink: #23201b;
+  --ink-soft: #5c564b;
+  --line: #ddd5c4;
+  --accent: #c2410c;          /* 預設強調色；講義頁會依科目覆蓋 */
+  --exam: #b91c1c;
+  --example: #1d4ed8;
+  --serif: "Noto Serif TC", "Source Han Serif TC", "PMingLiU", Georgia, serif;
+  --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --radius: 6px;
+  --content: 720px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); }
+h1, h2, h3 { font-family: var(--serif); line-height: 1.35; font-weight: 700; }
+.en { font-family: Georgia, serif; font-style: italic; font-weight: 400; color: var(--ink-soft); }
+
+/* ---------- 頂部列 ---------- */
+.topbar {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  position: sticky; top: 0; z-index: 10;
+}
+.topbar-inner {
+  max-width: 1080px; margin: 0 auto; padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.brand { font-family: var(--serif); font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: .02em; }
+.brand::before { content: "§ "; color: var(--accent); }
+#breadcrumb { font-size: 14px; color: var(--ink-soft); }
+#breadcrumb a { color: var(--ink-soft); }
+#breadcrumb .sep { margin: 0 .5em; }
+
+/* ---------- 首頁 ---------- */
+.hero { max-width: 1080px; margin: 0 auto; padding: 64px 20px 32px; }
+.hero h1 { font-size: clamp(32px, 6vw, 52px); margin: 0 0 12px; }
+.hero p { max-width: 560px; color: var(--ink-soft); margin: 0; }
+.hero .stat { margin-top: 20px; font-size: 14px; color: var(--ink-soft); }
+.hero .stat b { color: var(--ink); font-size: 18px; }
+
+#course-list { max-width: 1080px; margin: 0 auto; padding: 0 20px 64px; }
+.course { margin-top: 40px; }
+.course-head {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 20px;
+}
+.course-head h2 { margin: 0; font-size: 26px; }
+.course-head .count { margin-left: auto; font-size: 14px; color: var(--ink-soft); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.card {
+  display: block; text-decoration: none; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--accent);
+  border-radius: var(--radius); padding: 18px 18px 14px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(35, 32, 27, .08); }
+.card .label { font-family: var(--mono); font-size: 13px; color: var(--accent); font-weight: 700; }
+.card h3 { margin: 4px 0 0; font-size: 20px; }
+.card .en { margin: 0; font-size: 14px; }
+.card .summary { font-size: 15px; color: var(--ink-soft); margin: 10px 0; line-height: 1.65; }
+.card .date { font-size: 12px; color: var(--ink-soft); margin: 0; }
+
+.how { max-width: 1080px; margin: 0 auto; padding: 0 20px 64px; font-size: 15px; color: var(--ink-soft); }
+.how code { font-family: var(--mono); background: var(--paper-2); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+
+/* ---------- 講義頁版面 ---------- */
+.lesson-layout {
+  max-width: 1080px; margin: 0 auto; padding: 40px 20px 64px;
+  display: grid; grid-template-columns: minmax(0, var(--content)) 220px; gap: 56px;
+}
+#toc { position: sticky; top: 80px; align-self: start; font-size: 14px; }
+#toc .toc-title { font-weight: 700; margin: 0 0 8px; color: var(--ink); }
+#toc ol { margin: 0; padding-left: 1.2em; color: var(--ink-soft); }
+#toc a { color: var(--ink-soft); text-decoration: none; }
+#toc a:hover { color: var(--accent); }
+
+.lesson-head { margin-bottom: 28px; }
+.kicker { font-family: var(--mono); font-size: 13px; letter-spacing: .06em; color: var(--accent); margin: 0; font-weight: 700; }
+.lesson-head h1 { font-size: clamp(28px, 5vw, 40px); margin: 6px 0 4px; }
+.lesson-head h1 .en { display: block; font-size: .5em; margin-top: 4px; }
+.lede { font-size: 18px; color: var(--ink-soft); margin: 12px 0 0; }
+
+article h2 {
+  font-size: 24px; margin: 48px 0 12px; padding-top: 8px;
+  border-top: 1px solid var(--line); scroll-margin-top: 80px;
+}
+article h3 { font-size: 19px; margin: 24px 0 8px; }
+article p { margin: 0 0 14px; }
+article ul, article ol { padding-left: 1.4em; margin: 0 0 14px; }
+article li { margin-bottom: 4px; }
+strong { color: var(--ink); background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 22%, transparent) 62%); }
+
+/* 本章重點 */
+.key-points {
+  background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--accent);
+  border-radius: var(--radius); padding: 18px 22px 8px;
+}
+.key-points h2 { border: 0; margin: 0 0 8px; padding: 0; font-size: 18px; }
+
+/* 名詞卡 */
+.terms { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 0 14px; }
+.terms div { background: var(--paper-2); border-radius: var(--radius); padding: 12px 14px; }
+.terms dt { font-weight: 700; }
+.terms dt .en { font-size: 14px; margin-left: 4px; }
+.terms dd { margin: 4px 0 0; font-size: 15px; color: var(--ink-soft); line-height: 1.65; }
+
+/* 提醒框 */
+.callout { border-radius: var(--radius); padding: 14px 18px; margin: 18px 0; font-size: 16px; }
+.callout > :last-child { margin-bottom: 0; }
+.callout .callout-title { font-weight: 700; margin: 0 0 6px; }
+.callout.exam { background: #fdf0ef; border: 1px solid #f3c9c5; }
+.callout.exam .callout-title { color: var(--exam); }
+.callout.example { background: #eef3fd; border: 1px solid #c9d7f5; }
+.callout.example .callout-title { color: var(--example); }
+
+/* 比較表 */
+.compare { width: 100%; border-collapse: collapse; font-size: 15px; margin: 0 0 16px; background: #fff; }
+.compare th, .compare td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; line-height: 1.6; }
+.compare th { background: var(--paper-2); font-weight: 700; }
+.table-wrap { overflow-x: auto; }
+
+/* 自我測驗 */
+.quiz ol.questions { padding-left: 0; list-style: none; counter-reset: q; }
+.quiz .q { counter-increment: q; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 14px; }
+.quiz .q > p:first-child::before { content: "Q" counter(q) ". "; font-weight: 700; color: var(--accent); }
+.quiz .q > p:first-child { font-family: Georgia, serif; }
+.quiz .options { list-style: upper-alpha; padding-left: 1.6em; font-family: Georgia, serif; font-size: 16px; }
+.quiz details { margin-top: 6px; }
+.quiz summary { cursor: pointer; color: var(--accent); font-weight: 700; font-size: 15px; }
+.quiz details p { margin: 8px 0 0; font-size: 15px; color: var(--ink-soft); }
+
+/* 上下篇 */
+#pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 20px; border-top: 2px solid var(--ink); }
+.pager-link { display: flex; flex-direction: column; text-decoration: none; color: var(--ink); max-width: 48%; }
+.pager-link.next { text-align: right; margin-left: auto; }
+.pager-link .dir { font-size: 13px; color: var(--accent); font-weight: 700; }
+.pager-link .t { font-family: var(--serif); }
+
+footer.site-foot { border-top: 1px solid var(--line); text-align: center; font-size: 13px; color: var(--ink-soft); padding: 24px 20px; }
+
+/* ---------- 手機 ---------- */
+@media (max-width: 860px) {
+  .lesson-layout { grid-template-columns: 1fr; gap: 0; padding-top: 24px; }
+  #toc { position: static; order: -1; background: var(--paper-2); border-radius: var(--radius); padding: 12px 16px; margin-bottom: 24px; }
+  .terms { grid-template-columns: 1fr; }
+  body { font-size: 16px; }
+}
